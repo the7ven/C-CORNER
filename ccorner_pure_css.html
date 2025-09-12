@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C'CORNER - Plateforme Immobilière Professionnelle du Cameroun</title>
+    <meta name="description" content="La première plateforme digitale qui connecte agents immobiliers et clients au Cameroun. Trouvez votre logement idéal à Yaoundé et Douala en toute sécurité.">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fafb;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .btn-outline {
+            background: white;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+        }
+        
+        .btn-outline:hover {
+            background: #eff6ff;
+        }
+        
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            background: #fbbf24;
+            color: #1f2937;
+        }
+        
+        .btn-secondary:hover {
+            background: #f59e0b;
+            transform: scale(1.05);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-ghost:hover {
+            background: white;
+            color: #1f2937;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #6b7280;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 1rem 0;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #374151;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero .highlight {
+            color: #fbbf24;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-buttons .btn {
+            padding: 16px 32px;
+            font-size: 1.125rem;
+        }
+        
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            opacity: 0.8;
+        }
+        
+        .trust-item {
+            text-align: center;
+        }
+        
+        .trust-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .trust-label {
+            font-size: 0.875rem;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            font-size: 1.125rem;
+            color: #6b7280;
+        }
+        
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-cols-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-problem {
+            border: 2px solid #fee2e2;
+            background: #fef2f2;
+        }
+        
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .icon-red {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+        
+        .icon-blue {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+        
+        .icon-yellow {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+        
+        .icon-green {
+            background: #dcfce7;
+            color: #22c55e;
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        
+        .card p {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        /* Service Cards */
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-item i {
+            color: #22c55e;
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+        
+        .feature-desc {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        /* How it works */
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .step-1 .step-number { background: #2563eb; }
+        .step-2 .step-number { background: #f59e0b; }
+        .step-3 .step-number { background: #22c55e; }
+        
+        .step h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        
+        .step p {
+            color: #6b7280;
+        }
+        
+        /* Premium Section */
+        .premium {
+            background: #1f2937;
+            color: white;
+        }
+        
+        .premium-card {
+            background: #374151;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .premium-popular {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            transform: scale(1.05);
+            border: 2px solid #fbbf24;
+        }
+        
+        .popular-badge {
+            background: #fbbf24;
+            color: #1f2937;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0 0.5rem;
+        }
+        
+        .price-period {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        /* Testimonials */
+        .testimonial {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .avatar-1 { background: #3b82f6; }
+        .avatar-2 { background: #22c55e; }
+        .avatar-3 { background: #a855f7; }
+        
+        .testimonial-name {
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 0.75rem;
+        }
+        
+        .testimonial-text {
+            color: #374151;
+            font-style: italic;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .cta-buttons .btn {
+            padding: 16px 32px;
+            font-size: 1.125rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fbbf24;
+        }
+        
+        .footer-section p {
+            color: #d1d5db;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: #9ca3af;
+            font-size: 1.25rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #fbbf24;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #fbbf24;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: #d1d5db;
+        }
+        
+        .contact-item i {
+            color: #fbbf24;
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+        
+        .footer-bottom a {
+            color: #d1d5db;
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover {
+            color: #fbbf24;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .trust-indicators {
+                gap: 2rem;
+            }
+            
+            .grid-cols-3,
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .premium-popular {
+                transform: none;
+                order: -1;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .card,
+            .service-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Animation utilities */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Button hover effects */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo font-heading">C'CORNER</div>
+                
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-outline">Se connecter</button>
+                    <button class="btn btn-primary">S'inscrire</button>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="mobile-menu" id="mobile-menu">
+                <a href="#services">Services</a>
+                <a href="#comment-ca-marche">Comment ça marche</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="font-heading">
+                L'immobilier camerounais<br>
+                <span class="highlight">enfin professionnel</span>
+            </h1>
+            <p>
+                La première plateforme qui connecte agents immobiliers vérifiés et clients en toute sécurité à Yaoundé et Douala.
+            </p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-secondary">
+                    <i class="fas fa-search"></i>
+                    Trouver un logement
+                </button>
+                <button class="btn btn-ghost">
+                    <i class="fas fa-briefcase"></i>
+                    Je suis agent immobilier
+                </button>
+            </div>
+            
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <div class="trust-number">500+</div>
+                    <div class="trust-label">Agents vérifiés</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number">2000+</div>
+                    <div class="trust-label">Biens disponibles</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number">98%</div>
+                    <div class="trust-label">Satisfaction client</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="font-heading">Fini les galères de l'immobilier traditionnel !</h2>
+                <p>Les problèmes que vous connaissez tous... nous les résolvons.</p>
+            </div>
+            
+            <div class="grid grid-cols-3">
+                <div class="card card-problem fade-in">
+                    <div class="card-icon icon-red">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Arnaques fréquentes</h3>
+                    <p>Fausses annonces, agents non vérifiés, informations erronées sur les groupes Facebook</p>
+                </div>
+                
+                <div class="card card-problem fade-in">
+                    <div class="card-icon icon-red">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Perte de temps</h3>
+                    <p>Recherches dispersées sur WhatsApp, annonces obsolètes, visites inutiles</p>
+                </div>
+                
+                <div class="card card-problem fade-in">
+                    <div class="card-icon icon-red">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <h3>Manque de visibilité</h3>
+                    <p>Agents perdus dans la masse, clients qui ne trouvent pas les bons professionnels</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="font-heading">Une solution complète pour tous</h2>
+                <p>Que vous soyez client ou agent immobilier, C'CORNER répond à tous vos besoins</p>
+            </div>
+            
+            <div class="grid grid-cols-2">
+                <div class="service-card fade-in">
+                    <div class="service-header">
+                        <div class="service-icon icon-blue">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="service-title font-heading">Pour les clients</h3>
+                    </div>
+                    
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <div class="feature-title">Recherche intelligente</div>
+                                <div class="feature-desc">Filtres avancés, carte interactive, alertes personnalisées</div>
+                            </div>
+                        </li>
+                        
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <div class="feature-title">Agents vérifiés uniquement</div>
+                                <div class="feature-desc">Tous nos agents sont contrôlés : registre de commerce, carte professionnelle</div>
+                            </div>
+                        </li>
+                        
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <div class="feature-title">Communication sécurisée</div>
+                                <div class="feature-desc">Messagerie privée, pas de numéros divulgués, historique des échanges</div>
+                            </div>
+                        </li>
+                        
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <div class="feature-title">Comparateur et favoris</div>
+                                <div class="feature-desc">Sauvegardez vos coups de cœur et comparez facilement</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-header">
+                        <div class="service-icon icon-yellow">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="service-title font-heading">Pour les agents</h3>
+                    </div>
+                    
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <div class="feature-title">Profil professionnel</div>
+                                <div class="feature-desc">Badge vérifié, portfolio, système de notation client</div>
+                            </div>
+                        </li>
+                        
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <div class="feature-title">Gestion simplifiée</div>
+                                <div class="feature-desc">Ajout rapide d'annonces, géolocalisation automatique, photos HD</div>
+                            </div>
+                        </li>
+                        
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <div class="feature-title">Statistiques détaillées</div>
+                                <div class="feature-desc">Vues, clics, demandes de contact, performance mensuelle</div>
+                            </div>
+                        </li>
+                        
+                        <li class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <div class="feature-title">Visibilité maximale</div>
+                                <div class="feature-desc">Annonces boostées, référencement local, clients qualifiés</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="comment-ca-marche" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="font-heading">Comment ça marche ?</h2>
+                <p>3 étapes simples pour révolutionner votre expérience immobilière</p>
+            </div>
+            
+            <div class="grid grid-cols-3">
+                <div class="step step-1 fade-in">
+                    <div class="step-number">1</div>
+                    <h3 class="font-heading">Inscription sécurisée</h3>
+                    <p>
+                        <strong>Clients :</strong> Inscription simple en 2 minutes<br>
+                        <strong>Agents :</strong> Vérification complète de vos documents professionnels
+                    </p>
+                </div>
+                
+                <div class="step step-2 fade-in">
+                    <div class="step-number">2</div>
+                    <h3 class="font-heading">Recherche & Publication</h3>
+                    <p>
+                        <strong>Clients :</strong> Recherchez avec nos filtres intelligents<br>
+                        <strong>Agents :</strong> Publiez vos annonces en quelques clics
+                    </p>
+                </div>
+                
+                <div class="step step-3 fade-in">
+                    <div class="step-number">3</div>
+                    <h3 class="font-heading">Connexion réussie</h3>
+                    <p>
+                        Échangez en toute sécurité via notre messagerie privée et concrétisez votre projet immobilier !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Features -->
+    <section class="section premium">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="font-heading">Fonctionnalités Premium</h2>
+                <p style="color: #d1d5db;">Démarquez-vous avec nos services avancés</p>
+            </div>
+            
+            <div class="grid grid-cols-3">
+                <div class="premium-card fade-in">
+                    <div class="card-icon" style="background: #fbbf24; color: white; margin: 0 auto 1rem;">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 style="color: white; margin-bottom: 1rem;">Annonces Boostées</h3>
+                    <p style="color: #d1d5db; margin-bottom: 1rem;">
+                        Mettez vos biens en avant dans les résultats de recherche et sur la page d'accueil
+                    </p>
+                    <div class="price" style="color: #fbbf24;">5.000 FCFA</div>
+                    <div class="price-period">par annonce/mois</div>
+                </div>
+                
+                <div class="premium-card premium-popular fade-in">
+                    <div class="popular-badge">PLUS POPULAIRE</div>
+                    <div class="card-icon" style="background: white; color: #2563eb; margin: 0 auto 1rem;">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 style="color: white; margin-bottom: 1rem;">Abonnement Pro</h3>
+                    <p style="color: #e5e7eb; margin-bottom: 1rem;">
+                        Annonces illimitées, statistiques avancées, CRM intégré, support prioritaire
+                    </p>
+                    <div class="price" style="color: #fbbf24;">25.000 FCFA</div>
+                    <div class="price-period">par mois</div>
+                </div>
+                
+                <div class="premium-card fade-in">
+                    <div class="card-icon" style="background: #22c55e; color: white; margin: 0 auto 1rem;">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 style="color: white; margin-bottom: 1rem;">Services Premium</h3>
+                    <p style="color: #d1d5db; margin-bottom: 1rem;">
+                        Visite guidée par agent terrain, assistance notariale, accompagnement juridique
+                    </p>
+                    <div class="price" style="color: #22c55e;">Sur devis</div>
+                    <div class="price-period">selon le service</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="font-heading">Ils nous font confiance</h2>
+                <p>Les témoignages de nos utilisateurs parlent d'eux-mêmes</p>
+            </div>
+            
+            <div class="grid grid-cols-3">
+                <div class="testimonial fade-in">
+                    <div class="testimonial-header">
+                        <div class="avatar avatar-1">MK</div>
+                        <div>
+                            <div class="testimonial-name">Marie Kouam</div>
+                            <div class="testimonial-role">Cliente - Yaoundé</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Enfin une plateforme sérieuse ! J'ai trouvé mon appartement en 1 semaine grâce aux filtres intelligents. Fini les arnaques des groupes Facebook !"
+                    </p>
+                </div>
+                
+                <div class="testimonial fade-in">
+                    <div class="testimonial-header">
+                        <div class="avatar avatar-2">JT</div>
+                        <div>
+                            <div class="testimonial-name">Jean Tchoua</div>
+                            <div class="testimonial-role">Agent Immobilier - Douala</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Mes ventes ont doublé depuis que j'utilise C'CORNER. Les clients sont plus sérieux et le tableau de bord m'aide à tout suivre facilement."
+                    </p>
+                </div>
+                
+                <div class="testimonial fade-in">
+                    <div class="testimonial-header">
+                        <div class="avatar avatar-3">AN</div>
+                        <div>
+                            <div class="testimonial-name">Aminata Ndiaye</div>
+                            <div class="testimonial-role">Cliente - Douala</div>
+                        </div>
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "La carte interactive est géniale ! Je peux voir tous les biens disponibles dans mon quartier préféré et contacter directement les agents."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="font-heading">
+                Prêt à révolutionner votre expérience immobilière ?
+            </h2>
+            <p>
+                Rejoignez dès aujourd'hui la communauté C'CORNER et découvrez l'immobilier autrement
+            </p>
+            
+            <div class="cta-buttons">
+                <button class="btn btn-secondary">
+                    <i class="fas fa-rocket"></i>
+                    Commencer maintenant
+                </button>
+                <button class="btn btn-ghost">
+                    <i class="fas fa-play"></i>
+                    Voir la démo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="font-heading">C'CORNER</h4>
+                    <p>
+                        La plateforme immobilière qui révolutionne le marché camerounais avec professionnalisme et sécurité.
+                    </p>
+                    <div class="social-links">
+                        <a href="#">facebook<i class="fab fa-facebook-f"></i></a>
+                        <a href="#">twitter<i class="fab fa-twitter"></i></a>
+                        <a href="#">linkedin<i class="fab fa-linkedin-in"></i></a>
+                        <a href="#">instagram<i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Recherche de logement</a></li>
+                        <li><a href="#">Gestion d'annonces</a></li>
+                        <li><a href="#">Vérification d'agents</a></li>
+                        <li><a href="#">Assistance juridique</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Zones d'activité</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Yaoundé Centre</a></li>
+                        <li><a href="#">Douala Littoral</a></li>
+                        <li><a href="#">Bafoussam Ouest</a></li>
+                        <li><a href="#">Autres villes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@ccorner-cameroun.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+237 6XX XXX XXX</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Yaoundé - Douala, Cameroun</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2025 C'CORNER. Tous droits réservés. | 
+                    <a href="#">Politique de confidentialité</a> | 
+                    <a href="#">Conditions d'utilisation</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        function createObserver() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            createObserver();
+        });
+        
+        // CTA button interactions
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Add click effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // Simulate action based on button text
+                const buttonText = this.textContent.trim();
+                
+                if (buttonText.includes('Trouver un logement')) {
+                    alert('Redirection vers la page de recherche...');
+                } else if (buttonText.includes('agent immobilier')) {
+                    alert('Redirection vers l\'inscription agent...');
+                } else if (buttonText.includes('Commencer')) {
+                    alert('Redirection vers l\'inscription...');
+                } else if (buttonText.includes('démo')) {
+                    alert('Lancement de la démo interactive...');
+                } else if (buttonText.includes('connecter')) {
+                    alert('Redirection vers la page de connexion...');
+                } else if (buttonText.includes('inscrire')) {
+                    alert('Redirection vers la page d\'inscription...');
+                }
+            });
+        });
+        
+        // Add navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'white';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+        
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.backgroundPosition = `center ${rate}px`;
+            }
+        });
+        
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+        
+        // Enhanced button hover effects
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Add typing effect to hero title (optional)
+        function typeWriter() {
+            const text = "L'immobilier camerounais enfin professionnel";
+            const heroTitle = document.querySelector('.hero h1');
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    heroTitle.innerHTML = text.substring(0, i) + '<span class="highlight">enfin professionnel</span>';
+                    i++;
+                    setTimeout(type, 50);
+                }
+            }
+            
+            // Uncomment to enable typing effect
+            // type();
+        }
+        
+        // Initialize typing effect
+        // typeWriter();
+    </script>
+</body>
+</html>
