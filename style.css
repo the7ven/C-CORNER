@@ -42,7 +42,7 @@ nav {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #2563eb;
+  color: #fb5624;
 }
 
 .nav-links {
@@ -59,7 +59,7 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #2563eb;
+  color: #fb5624;
 }
 
 .nav-buttons {
@@ -80,8 +80,8 @@ nav {
 
 .btn-outline {
   background: white;
-  color: #2563eb;
-  border: 1px solid #2563eb;
+  color: #fb5624;
+  border: 1px solid #fb5624;
 }
 
 .btn-outline:hover {
@@ -89,7 +89,7 @@ nav {
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: #fb5624;
   color: white;
 }
 
@@ -98,24 +98,25 @@ nav {
 }
 
 .btn-secondary {
-  background: #fbbf24;
-  color: #1f2937;
+  background: #fb5624;
+  color: #ffffff;
 }
 
 .btn-secondary:hover {
-  background: #f59e0b;
+  background: #ffffff;
   transform: scale(1.05);
+  color: #fb5624;
 }
 
 .btn-ghost {
   background: transparent;
-  color: white;
+  color: #fb5624;
   border: 2px solid white;
 }
 
 .btn-ghost:hover {
-  background: white;
-  color: #1f2937;
+  background: #fb5624;
+  color: #ffffff;
 }
 
 .mobile-menu-btn {
@@ -167,7 +168,7 @@ nav {
 }
 
 .hero .highlight {
-  color: #fbbf24;
+  color: #fb4424;
 }
 
 .hero p {
@@ -291,7 +292,7 @@ nav {
 
 .icon-yellow {
   background: #fef3c7;
-  color: #f59e0b;
+  color: #fb5624;
 }
 
 .icon-green {
@@ -397,7 +398,7 @@ nav {
   background: #2563eb;
 }
 .step-2 .step-number {
-  background: #f59e0b;
+  background: #fb5624;
 }
 .step-3 .step-number {
   background: #22c55e;
@@ -431,11 +432,11 @@ nav {
 .premium-popular {
   background: linear-gradient(135deg, #2563eb, #7c3aed);
   transform: scale(1.05);
-  border: 2px solid #fbbf24;
+  border: 2px solid #fb5624;
 }
 
 .popular-badge {
-  background: #fbbf24;
+  background: #fb5624;
   color: #1f2937;
   padding: 0.5rem 1rem;
   border-radius: 9999px;
@@ -504,7 +505,7 @@ nav {
 }
 
 .stars {
-  color: #fbbf24;
+  color: #fb5624;
   margin-bottom: 0.75rem;
 }
 
@@ -573,7 +574,7 @@ footer {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #fbbf24;
+  color:#fb5624 ;
 }
 
 .footer-section p {
@@ -593,7 +594,7 @@ footer {
 }
 
 .social-links a:hover {
-  color: #fbbf24;
+  color:#fb5624 ;
 }
 
 .footer-links {
@@ -611,7 +612,7 @@ footer {
 }
 
 .footer-links a:hover {
-  color: #fbbf24;
+  color: #fb5624;
 }
 
 .contact-item {
@@ -622,7 +623,7 @@ footer {
 }
 
 .contact-item i {
-  color: #fbbf24;
+  color: #fb5624;
   margin-right: 0.75rem;
   width: 20px;
 }
@@ -640,7 +641,7 @@ footer {
 }
 
 .footer-bottom a:hover {
-  color: #fbbf24;
+  color: #fb5624;
 }
 
 /* Responsive Design */
